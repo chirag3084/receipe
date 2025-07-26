@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -34,14 +35,14 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    "whitenoise.runserver_nostatic" "django.contrib.admin",
+    "whitenoise.runserver_nostatic",
+    "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "vege",
-    "rest_framework",
 ]
 
 MIDDLEWARE = [
