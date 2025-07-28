@@ -1,0 +1,7 @@
+.venv
+migrations
+.idea
+__pycache__
+utils.py    
+__pycache__
+.env
