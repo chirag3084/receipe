@@ -1,0 +1,5 @@
+.venv/
+core/core/migrations/
+core/core/__pycache__/  
+core/vege/__pycache__/
+core/*.env
