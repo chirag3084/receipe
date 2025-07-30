@@ -1,5 +1,5 @@
 .venv/
-core/core/migrations/
-core/core/__pycache__/  
-core/vege/__pycache__/
-core/*.env
+core/migrations/
+core/__pycache__/  
+vege/__pycache__/
+*.env
