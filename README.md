@@ -6,7 +6,6 @@ A Django-based web application for managing and sharing recipes.
 
 - **Recipe Management**: Create, view, edit, and delete recipes
 - **User Authentication**: Secure user registration and login system
-- **Recipe Categories**: Organize recipes by categories
 - **Search Functionality**: Find recipes quickly
 - **Responsive Design**: Works on desktop and mobile devices
 
