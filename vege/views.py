@@ -133,8 +133,7 @@ def home(request):
     return render(request, "home.html")
 
 def admin_page(request):
+    
     return render(request, "admin_page.html")
 def password_reset_complete(request):
     return render(request,"password_reset_complete.html")
-
-
