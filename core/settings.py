@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import cloudinary_storage
 import os
 from dotenv import load_dotenv
 
@@ -19,6 +20,16 @@ load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+cloudinary.config(
+    CLOUDINARY_CLOUD_NAME="dxtemqzso",
+    CLOUDINARY_API_KEY="336742439952196",
+    CLOUDINARY_API_SECRET="pRh5LFf1w61b1oWmpCz0pWo7a_o",
+)
 
 
 # Quick-start development settings - unsuitable for production
@@ -44,6 +55,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "vege",
+    "cloudinary_storage",
+    "cloudinary",
 ]
 
 MIDDLEWARE = [
@@ -97,6 +110,9 @@ DATABASES = {
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST"),
         "PORT": os.environ.get("DB_PORT"),
+        "OPTIONS": {
+            "gssencmode": "disable",
+        },
     }
 }
 
@@ -135,19 +151,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-# import os
-# STATIC_URL = "static/"
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
-# STATICFILES_DIR = {os.path.join(BASE_DIR, "public/static")}
-
-# MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
-# MEDIA_URL = "/media/"
-
-
-
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build" "staticfiles")
+import os
+STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_DIR = {os.path.join(BASE_DIR, "public/static")}
 
@@ -155,7 +161,31 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
 MEDIA_URL = "/media/"
 
 
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build" "staticfiles")
+
+# STATICFILES_DIR = {os.path.join(BASE_DIR, "public/static")}
+
+# MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
+# MEDIA_URL = "/media/"
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CLODINARY_STORAGE = {
+    "CLOUD_NAME": "dxtemqzso",
+    "API_KEY": "336742439952196",
+    "API_SECRET": "pRh5LFf1w61b1oWmpCz0pWo7a_o",
+}
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+
+import os
+
+CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
+CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
+CLOUDINARY_API_SECRET = os.environ.get("CLOUDINARY_API_SECRET")
