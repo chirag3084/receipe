@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-import cloudinary_storage
 import os
 from dotenv import load_dotenv
 
@@ -26,9 +25,9 @@ import cloudinary.uploader
 import cloudinary.api
 
 cloudinary.config(
-    CLOUDINARY_CLOUD_NAME="dxtemqzso",
-    CLOUDINARY_API_KEY="336742439952196",
-    CLOUDINARY_API_SECRET="pRh5LFf1w61b1oWmpCz0pWo7a_o",
+    CLOUDINARY_CLOUD_NAME=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    CLOUDINARY_API_KEY= os.environ.get("CLOUDINARY_API_KEY"),
+    CLOUDINARY_API_SECRET= os.environ.get("CLOUDINARY_API_SECRET"),
 )
 
 
@@ -55,7 +54,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "vege",
-    "cloudinary_storage",
     "cloudinary",
 ]
 
@@ -174,12 +172,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build" "staticfiles")
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-CLODINARY_STORAGE = {
-    "CLOUD_NAME": "dxtemqzso",
-    "API_KEY": "336742439952196",
-    "API_SECRET": "pRh5LFf1w61b1oWmpCz0pWo7a_o",
-}
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 
