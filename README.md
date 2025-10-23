@@ -7,7 +7,6 @@ A Django-based web application for managing and sharing recipes.
 - **Recipe Management**: Create, view, edit, and delete recipes
 - **User Authentication**: Secure user registration and login system
 - **Search Functionality**: Find recipes quickly
-- **Responsive Design**: Works on desktop and mobile devices
 
 ## Tech Stack
 
@@ -97,12 +96,9 @@ receipe/
 1. Log in to your account
 2. Click on "Add Recipe"
 3. Fill in the recipe details:
-   - Title
-   - Description
-   - Ingredients
-   - Instructions
-   - Cooking time
-   - Category
+   - Recipe Name
+   - Recipe Description
+   - Recipe Image
 4. Save the recipe
 
 ### Searching Recipes
