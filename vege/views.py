@@ -133,8 +133,25 @@ def home(request):
     return render(request, "home.html")
 
 def admin_page(request):
+    if request.method == "POST":
+        data = request.POST
+        receipe_image = request.FILES.get("receipe_image")
+        receipe_name = data.get("receipe_name")
+        receipe_description = data.get("receipe_description")
+
+        print(receipe_description)
+        print(receipe_image)
+        print(receipe_name)
+
+        Receipe.objects.create(
+            receipe_image=receipe_image,
+            receipe_name=receipe_name,
+            receipe_description=receipe_description,
+        )
+
+        return redirect("/receipes/")
+    queryset = Receipe.objects.all()
+    
     return render(request, "admin_page.html")
 def password_reset_complete(request):
     return render(request,"password_reset_complete.html")
-
-
