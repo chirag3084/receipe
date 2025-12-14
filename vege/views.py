@@ -9,11 +9,24 @@ from django.contrib.auth.decorators import login_required
 from asgiref.sync import sync_to_async
 
 
+# Helper function to check if user is authenticated in async views
+async def async_login_required(request, redirect_url="/login/"):
+    """Check if user is authenticated, redirect if not"""
+    is_authenticated = await sync_to_async(lambda: request.user.is_authenticated)()
+    if not is_authenticated:
+        return redirect(redirect_url)
+    return None
 
 
 
-@login_required(login_url="/login/")
+
+
 async def receipes(request):
+    # Check if user is authenticated
+    auth_check = await async_login_required(request)
+    if auth_check:
+        return auth_check
+    
     if request.method == "POST":
         data = request.POST
         receipe_image = request.FILES.get("receipe_image")
@@ -129,7 +142,7 @@ async def register(request):
         await sync_to_async(user.set_password)(password)
         await user.asave()
 
-        messages.info(request, "Account created Sucessfully")
+        messages.info(request, "Account created Successfully")
 
         return redirect("/login/")
 
@@ -157,7 +170,6 @@ async def admin_page(request):
         )
 
         return redirect("/receipes/")
-    queryset = [receipe async for receipe in Receipe.objects.all()]
     
     return render(request, "admin_page.html")
 
