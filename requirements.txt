@@ -4,5 +4,4 @@ psycopg2-binary==2.9.10
 whitenoise==6.9.0
 python-dotenv==1.0.1
 cloudinary==1.44.1
-fastapi==2.9.1
 
