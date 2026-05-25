@@ -22,6 +22,7 @@ A Django-based web application for managing and sharing recipes.
 - Python 3.8 or higher
 - pip (Python package manager)
 - Virtual environment (recommended)
+- Cloudinary account
 
 ### Setup Instructions
 
