@@ -7,6 +7,7 @@ A Django-based web application for managing and sharing recipes.
 - **Recipe Management**: Create, view, edit, and delete recipes
 - **User Authentication**: Secure user registration and login system
 - **Search Functionality**: Find recipes quickly
+- **Image Upload**: Upload recipe images using Cloudinary
 
 ## Tech Stack
 
