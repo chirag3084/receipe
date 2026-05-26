@@ -15,6 +15,7 @@ A Django-based web application for managing and sharing recipes.
 - **Database**: SQLite (default) / PostgreSQL (production)
 - **Frontend**: HTML, CSS, JavaScript
 - **Authentication**: Django's built-in authentication system
+- **Cloudinary**: Image storage
 
 ## Installation
 
