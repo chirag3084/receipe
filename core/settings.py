@@ -154,14 +154,16 @@ import os
 STATIC_URL = "/static"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "public", "static"),]
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "public", "static"),
+]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "public/static")
 MEDIA_URL = "/media/"
 
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # STATICFILES_DIR = {os.path.join(BASE_DIR, "public/static")}
 
@@ -175,7 +177,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "staticfiles")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
 # CLOUDINARY_API_KEY = os.environ.get("CLOUDINARY_API_KEY")
