@@ -14,14 +14,18 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "core/wsgi.py"
-    }
-  ]
-}
+    "routes": [
+      {
+        "src": "/favicon.ico",
+        "dest": "/static/favicon.ico"
+      },
+      {
+        "src": "/static/(.*)",
+        "dest": "/static/$1"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "your_project/wsgi.py" 
+      }
+    ]
+  }
